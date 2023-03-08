@@ -9,5 +9,4 @@ public class OpenrewriteSpringDemoApplication {
     public static void main(String[] args) {
         SpringApplication.run(OpenrewriteSpringDemoApplication.class, args);
     }
-
 }
