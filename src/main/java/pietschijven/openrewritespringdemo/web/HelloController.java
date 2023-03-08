@@ -3,25 +3,25 @@ package pietschijven.openrewritespringdemo.web;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.servlet.ServletRequest;
-import javax.servlet.http.HttpServletRequest;
+import jakarta.servlet.ServletRequest;
+import jakarta.servlet.http.HttpServletRequest;
 
 @RestController
 public class HelloController {
 
-    private final static String base_message = "Hello request";
+    private final String baseMessage = "Hello request";
 
     @GetMapping("/hello")
     public String hello(ServletRequest servletRequest){
-        String semicolon = String.valueOf(": ");;
-        if ((servletRequest != null) == true) {
-            return getString((HttpServletRequest) servletRequest, semicolon, base_message);
+        String semicolon = ": ";
+        if ((servletRequest != null)) {
+            return getString((HttpServletRequest) servletRequest, semicolon, baseMessage);
         }
         return "no request";
     }
 
-    private static final String getString(HttpServletRequest servletRequest, String semicolon, String Message) {
-        return Message + semicolon + servletRequest
+    private static String getString(HttpServletRequest servletRequest, String semicolon, String message) {
+        return message + semicolon + servletRequest
                 .getRequestURI();
     }
 
